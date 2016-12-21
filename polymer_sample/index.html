@@ -1,0 +1,66 @@
+<!--
+Copyright (C) 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <link rel="import" href="/src/cast-remote-player.html">
+  <script type="text/javascript" src="/src/player.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+
+  <title>Cast Sender Framework Example (Polymer)</title>
+  <style>
+
+    #castButton {
+      width: 25px;
+      height: 25px;
+      padding: 1px;
+      vertical-align: middle;
+      display: inline;
+      --disconnected-color: black;
+      --connected-color: green;
+    }
+
+    #localPlayer {
+      width: 704px;
+      height: 480px;
+      margin: 10px;
+      border-style: ridge;
+      border-width: 4px;
+    }
+
+    #remotePlayer {
+      width: 500px;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Cast Sender Framework Example (Polymer)</h1>
+  <div id="castError"></div>
+  <div id="castDiv">
+    Connect to a remote device
+    <button is="google-cast-button" id="castButton"></button>
+  </div>
+  <p>
+  <div id="videoPicker">Pick video to play:
+    <button onclick="playMedia(0)">Big Buck Bunny</button>
+    <button onclick="playMedia(1)">Sintel</button>
+  </div>
+  <p>
+  <video id="localPlayer" controls="true"></video>
+  <cast-remote-player id="remotePlayer"></cast-remote-player>
+</body>
+</html>

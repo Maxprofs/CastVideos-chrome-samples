@@ -1,0 +1,135 @@
+<!--
+Copyright (C) 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+
+<dom-module id="cast-remote-player">
+  <template>
+    <style>
+      .player {
+        border-style: solid;
+        border-width: 2px;
+        padding: 3px;
+      }
+      .time-slider {
+        --paper-slider-knob-color: rgb(16, 16, 16);
+        --paper-slider-active-color: rgb(16, 16, 16);
+        --paper-slider-pin-color: rgb(16, 16, 16);
+        width: 100%;
+      }
+      .volume-slider {
+        --paper-slider-knob-color: rgb(16, 16, 16);
+        --paper-slider-active-color: rgb(33, 150, 243);
+        --paper-slider-pin-color: rgb(16, 16, 16);
+        width: 100%;
+      }
+      .status-text {
+        color: rgb(125, 125, 125);
+        margin: 3px 8px;
+        overflow: hidden;
+        height: 30px;
+        vertical-align: middle;
+      }
+      .time-controls {
+        margin-top: 3px;
+        display: block;
+        overflow: hidden;
+      }
+      .media-controls {
+        margin-top: 13px;
+        display: block;
+        overflow: hidden;
+      }
+      .timeline {
+        font-size: 0.75em;
+        margin-left: 15px;
+      }
+      .ellipsis {
+        width: 90%;
+        padding: 0% 1%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .button-holder {
+        float:left;
+      }
+      .volume-holder {
+        display: block;
+        overflow: hidden;
+        padding: 0.3em 0;
+      }
+      .thumbnail {
+        width: 40px;
+        height: 30px;
+        vertical-align: top;
+      }
+    </style>
+
+    <div class="player" hidden=[[!isConnected]]>
+      <div class="status-text ellipsis">
+        <img class="thumbnail" hidden=[[!imageUrl]] src=[[imageUrl]]>
+        <span>[[statusText]]</span>
+      </div>
+      <div>
+        <div>
+          <div class="time-controls">
+            <paper-slider
+               class="time-slider"
+               disabled="[[!canSeek]]"
+               on-change="onTimeSliderChange"
+               on-immediate-value-change="onImmediateTimeSliderChange"
+               min="0" max="100"
+               value="[[timeSliderValue]]"></paper-slider>
+            <div class="timeline">
+              <span class="current-time">
+                [[getFormattedTime(currentTime)]]
+              </span>/
+              <span class="duration">
+                [[getFormattedTime(duration)]]
+              </span>
+            </div>
+          </div>
+          <div class="media-controls">
+            <span class="button-holder">
+              <paper-icon-button
+                 disabled=[[!canPause]]
+                 icon="[[getPlayPauseIcon(isPaused)]]"
+                 on-click="onPlayPause"></paper-icon-button>
+              <paper-icon-button
+                 class="volume-button"
+                 icon="[[getMuteUnmuteIcon(isMuted)]]"
+                 on-click="onMuteUnmute"></paper-icon-button>
+            </span>
+            <span class="volume-holder">
+              <paper-slider
+                 class="volume-slider"
+                 on-change="onVolumeSliderChange"
+                 on-immediate-value-change="onImmediateVolumeSliderChange"
+                 value="[[volumeSliderValue]]"
+                 min="0" max="1" step="0.01"></paper-slider>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script src="cast-remote-player.js"></script>
+</dom-module>

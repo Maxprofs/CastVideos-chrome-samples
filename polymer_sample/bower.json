@@ -1,0 +1,12 @@
+{
+  "name": "cast_framework_polymer_sample",
+  "version": "0.0.1",
+  "homepage": "https://github.com/googlecast/CastVideosCAF-chrome-samples",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "polymer": "polymer/polymer#^1.4.0",
+    "iron-icons": "polymerelements/iron-icons#^1.0.0",
+    "paper-slider": "polymerelements/paper-slider#^1.0.0",
+    "paper-icon-button": "polymerelements/paper-icon-button#^1.0.0"
+  }
+}
