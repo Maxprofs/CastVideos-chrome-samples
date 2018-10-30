@@ -7,16 +7,16 @@ and [Polymer](https://www.polymer-project.org/1.0/).
 
 **These are sender apps to be used as the starting point for your Chrome sender app**
 
-* [Events Sample](./tree/master/events_sample)
-* [Angular Sample](./tree/master/angular_sample)
-* [Polymer Sample](./tree/master/polymer_sample)
+* [Events Sample](/events_sample)
+* [Angular Sample](/angular_sample)
+* [Polymer Sample](/polymer_sample)
 
 Here is the list of reference apps:
 
 * [Chrome Sender: CastVideos-chrome](https://github.com/googlecast/CastVideos-chrome)
 * [Android Sender: CastVideos-android](https://github.com/googlecast/CastVideos-android)
 * [iOS Sender: CastVideos-ios](https://github.com/googlecast/CastVideos-ios)
-* [Receiver: CastReferencePlayer](https://github.com/googlecast/CastReferencePlayer)
+* [CAF Receiver: BasicReceiverCAF](https://github.com/googlecast/BasicReceiverCAF)
 
 ## Setup Instructions
 
@@ -41,13 +41,14 @@ See the developer guide and release notes at https://developers.google.com/cast/
  6. In the sample root directory, run `polymer build`, then `polymer serve build/unbundled`
  7. Open a browser and point to your page at http://[YOUR_SERVER_LOCATION]/polymer_sample/
 
-### Documentation
-* Cast APIs: http://developers.google.com/cast/docs/chrome_sender
-
-## References and How to report bugs
+## References
+* Developer Guides: https://developers.google.com/cast/
 * Cast APIs: http://developers.google.com/cast/docs/reference/chrome
-* Design Checklist (http://developers.google.com/cast/docs/design_checklist)
-* If you find any issues, please open a bug here on GitHub
+* Design Checklist: http://developers.google.com/cast/docs/design_checklist
+
+## How to report bugs
+* For Cast SDK issues: https://devsite.googleplex.com/cast/docs/support
+* For sample apps issues, please open a bug here on GitHub
 
 ## How to make contributions?
 Please read and follow the steps in the CONTRIBUTING.md
