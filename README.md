@@ -47,7 +47,7 @@ See the developer guide and release notes at https://developers.google.com/cast/
 * Design Checklist: http://developers.google.com/cast/docs/design_checklist
 
 ## How to report bugs
-* For Cast SDK issues: https://devsite.googleplex.com/cast/docs/support
+* For Cast SDK issues: https://developers.google.com/cast/docs/support
 * For sample apps issues, please open a bug here on GitHub
 
 ## How to make contributions?
